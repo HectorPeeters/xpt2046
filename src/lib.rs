@@ -302,7 +302,7 @@ where
         self.tx_buff[0] = 0x80;
         self.cs.set_high()?;
         self.spi_read()?;
-        delay.delay_ms(1);
+        delay.delay_ms(1).map_err(|_| Error::Delay)?;
 
         /*
          * Load the tx_buffer with the channels config

@@ -7,6 +7,7 @@
 ///
 /// Implement it as per following in the app
 ///
+/// ```ignore
 ///    pub struct MyIrq<const C: char, const N: u8>(Pin<C, N>);
 ///
 ///    impl Xpt2046Exti for MyIrq<'A', 2> {
@@ -31,9 +32,11 @@
 ///            self.0.is_low()
 ///        }
 ///    }
+/// ```
 ///
 /// The use it as such in the driver
 ///
+/// ```ignore
 ///        let mut xpt_drv = Xpt2046::new(
 ///            touch_spi,
 ///            touch_cs,
@@ -41,6 +44,7 @@
 ///            xpt2046::Orientation::PortraitFlipped,
 ///        );
 ///
+/// ```
 pub trait Xpt2046Exti {
     type Exti;
     fn clear_interrupt(&mut self);
